@@ -1,9 +1,0 @@
-export default function Playground() {
-  return (
-    //Layer 1
-    <main className="min-h-screen bg-[#1A0F0A] flex justify-center">
-        
-    </main>
-   
-  );
-}

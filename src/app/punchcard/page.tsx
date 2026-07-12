@@ -1,8 +1,11 @@
 "use client"; // Required for interactive elements like buttons and alerts
 import { useState } from "react"; // add state variable to track punched stamps. its the primary way to manage data that changes over time in a React component. when the state changes, the component re-renders to reflect the new data. import { Html5QrcodeScanner} } from "html5-qrcode";
 import { Html5Qrcode } from "html5-qrcode";
+import {motion} from "framer-motion"
+import PakInchikLogo from "@/components/PakInchikLogo";
 
-export default function Playground() {
+
+export default function PunchCard() {
 
   //LOGICS FOR STAMPING , QR SCANNING, AND MODAL CONTROL
 
@@ -64,43 +67,33 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   return (
 
 
+
     
-    <main className="min-h-screen bg-black flex justify-center items-center p-4">
-      
-      {/* LAYER 1: THE PHONE FRAME */}
-      <div className="w-full max-w-[430px] h-[850px] max-h-[90vh] relative flex flex-col 
-                      bg-radial from-[#ecb176] via-[#A67B5B] to-[#2C1810] 
-                      rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
+    <main className="min-h-dvh w-full overflow-y-auto bg-radial from-[#ecb176] via-[#A67B5B] to-[#2C1810] flex justify-center items-center px-4 py-6 sm:py-10">
+      {/* LAYER 1: THE RESPONSIVE FRAME */}
+      <div className="w-full max-w-md md:max-w-3xl lg:max-w-5xl
+                      bg-white/5 backdrop-blur-sm
+                      rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
         
         {/* SCROLLABLE CONTENT AREA */}
-        <div className="flex-1 flex flex-col p-8 pt-12 overflow-y-auto no-scrollbar">
+        <div className="flex flex-col p-5 pt-8 sm:p-8 sm:pt-12 md:p-10 overflow-y-auto no-scrollbar">
           
           {/* LAYER 2: THE HEADER */}
-          <header className="flex justify-between items-center w-full mb-8">
-            <div className="flex items-center gap-2 bg-gradient-to-br from-[#3D2B1F] to-[#1A0F0A] px-4 py-2 rounded-2xl border border-white/10 shadow-lg">
-              <span className="text-white text-sm font-bold">☕</span>
-            </div>
-
-            <div className="flex items-center">
-              <span className="text-white text-lg font-bold tracking-tight">Pak Inchik Cafe</span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 transition-colors hover:bg-white/10">
-                <span>🔔</span>
-              </button>
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#D97706] shadow-md">
-                <img 
-                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
+          <header className="flex items-center w-full max-w-xl mx-auto mb-6 sm:mb-8 gap-3">
+            <div className="justify-items-center">
+              <PakInchikLogo className="w-28 sm:w-40 h-auto mb-3 sm:mb-4" />
               </div>
-            </div>
+
+            
           </header>
 
           {/* --- LAYER 3: GLASS LOYALTY CARD --- */}
-          <section className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 p-8 shadow-2xl relative overflow-hidden mt-6">
+          <motion.section
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{duration:0.5}}
+            className="w-full max-w-xl mx-auto bg-white/5 backdrop-blur-xl rounded-[2rem] sm:rounded-[2.5rem] border border-white/10 p-5 sm:p-8 shadow-2xl relative overflow-hidden mt-4 sm:mt-6"
+          >
             
             {/* Decorative Glow inside the card */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-amber-600/10 blur-3xl rounded-full"></div>
@@ -181,7 +174,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
-          </section>
+          </motion.section>
           
 
         </div>
