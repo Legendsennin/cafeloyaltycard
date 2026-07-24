@@ -31,12 +31,16 @@ useEffect(() => {
 
 
 return (
- <div className="min-h-screen bg-radial from-[#ecb176] via-[#A67B5B] to-[#2C1810] flex items-center justify-center p-4">
+ <main className="min-h-dvh overflow-hidden bg-[#FFF7EA] text-[#211813]">
+  <div className="relative flex min-h-dvh items-center justify-center px-4 py-4 sm:px-6 sm:py-8">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(159,188,143,0.44),transparent_32%),linear-gradient(135deg,#FFF7EA_0%,#F3E0BF_45%,#5A3827_140%)]" />
+    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(180deg,transparent,rgba(33,24,19,0.12))]" />
+    <div className="relative z-10 w-full max-w-md">
   <motion.div
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{duration:0.5}}
-  className="w-full max-w-md"
+  className="w-full"
  >
   
 <div className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
@@ -143,6 +147,8 @@ Google
 </div>
 
   </motion.div>
- </div>
+    </div>
+  </div>
+ </main>
   );
 }
